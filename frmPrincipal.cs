@@ -42,18 +42,53 @@ namespace AppFuncionario
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "" || txtMatricula.Text == "") ;
-            MessageBox.Show("Por favor, preencha todos os campos!");
-            return;
-        }
-        try 
-	{	        
-		
-	}
-	catch (global::System.Exception)
-	{
+            if (txtNome.Text == "" || txtMatricula.Text == "") {
+                MessageBox.Show("Por favor, preencha todos os campos!");
+                return;
+            }
+            try
+            {
+                Funcionario funcionario = new Funcionario();
+                if (funcionario.RegistroRepetido(txtMatricula.Text) == true)
+                {
+                    MessageBox.Show("Funcionário já existe em nossa base de dados!");
+                    txtNome.Text = string.Empty;
+                    txtMatricula.Text = string.Empty;
+                    txtDataNascimento.Text = string.Empty;
+                    cbxTurno.Text = string.Empty;
+                    this.ActiveControl = txtNome;
+                }
+                else
+                {
+                    string turno = cbxTurno.SelectedItem.ToString();
+                    funcionario.Inserir(txtNome.Text, turno, txtDataNascimento.Text, txtMatricula.Text);
+                    MessageBox.Show("Funcionário cadastrado com sucesso!");
+                    List<Funcionario> func = funcionario.Listafuncionario();
+                    dgvFuncionario.DataSource = func;
+                    txtNome.Text = string.Empty;
+                    txtMatricula.Text = string.Empty;
+                    txtDataNascimento.Text = string.Empty;
+                    cbxTurno.Text = string.Empty;
+                    string data = DateTime.Now.ToString("dd/MM/yyyy");
+                    if(funcionario.Aniversario(data) == false)
+                    {
+                        pbxAniversario.Visible = false;
+                    }
+                    else
+                    {
+                        pbxAniversario.Visible=true;
+                    }
 
-		throw;
-	}
+                }
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            
+
+        }
+            
     }
 }
