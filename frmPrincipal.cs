@@ -21,5 +21,10 @@ namespace AppFuncionario
         {
             label1.Text = cbxTurno.SelectedItem.ToString();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
