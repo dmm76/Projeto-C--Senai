@@ -41,22 +41,27 @@
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.pbxAniversario = new System.Windows.Forms.PictureBox();
+            this.btnLocalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAniversario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
             // 
+            this.btnSair.BackColor = System.Drawing.Color.Red;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(558, 180);
             this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(138, 49);
             this.btnSair.TabIndex = 0;
-            this.btnSair.Text = "button1";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // label1
@@ -175,7 +180,10 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.BackColor = System.Drawing.Color.IndianRed;
+            this.btnInserir.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserir.ForeColor = System.Drawing.Color.White;
             this.btnInserir.Location = new System.Drawing.Point(558, 15);
             this.btnInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInserir.Name = "btnInserir";
@@ -183,26 +191,35 @@
             this.btnInserir.TabIndex = 12;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
-            // button2
+            // btnEditar
             // 
-            this.button2.Location = new System.Drawing.Point(558, 69);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 49);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditar.BackColor = System.Drawing.Color.Green;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(558, 69);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(138, 49);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnExcluir
             // 
-            this.button3.Location = new System.Drawing.Point(558, 126);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 49);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExcluir.BackColor = System.Drawing.Color.Brown;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(558, 126);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(138, 49);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
             // 
             // pbxAniversario
             // 
@@ -215,15 +232,31 @@
             this.pbxAniversario.TabIndex = 15;
             this.pbxAniversario.TabStop = false;
             // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalizar.FlatAppearance.BorderSize = 0;
+            this.btnLocalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalizar.ForeColor = System.Drawing.Color.Black;
+            this.btnLocalizar.Location = new System.Drawing.Point(94, 22);
+            this.btnLocalizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLocalizar.Name = "btnLocalizar";
+            this.btnLocalizar.Size = new System.Drawing.Size(113, 36);
+            this.btnLocalizar.TabIndex = 16;
+            this.btnLocalizar.Text = "Localizar";
+            this.btnLocalizar.UseVisualStyleBackColor = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(704, 428);
+            this.Controls.Add(this.btnLocalizar);
             this.Controls.Add(this.pbxAniversario);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label5);
@@ -267,9 +300,10 @@
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.PictureBox pbxAniversario;
+        private System.Windows.Forms.Button btnLocalizar;
     }
 }
 
