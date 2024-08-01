@@ -12,56 +12,55 @@ namespace AppFuncionario
     public class Funcionario
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Turno { get; set; }
-        public string Data_nascimento { get; set; }
-        public string Matricula { get; set; }
+        public string nome { get; set; }
+        public string turno { get; set; }
+        public string data_nascimento { get; set; }
+        public string matricula { get; set; }
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\SENAI_C#\\APPFuncionario\\AppFuncionario\\DbFuncionario.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Programas\\AppFuncionario\\DbFuncionario.mdf;Integrated Security=True");
 
-        public List<Funcionario> ListaFuncionario()
+        public List<Funcionario> Listafuncionario()
         {
             List<Funcionario> li = new List<Funcionario>();
             string sql = "SELECT * FROM Funcionario";
-            if(con.State == ConnectionState.Open) //fecha o banco se ele ja estiver aberto, para nao der erro
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
             con.Open();
             SqlCommand cmd = new SqlCommand(sql, con);
-            SqlDataReader dr = cmd.ExecuteReader(); //dr = data reader
-            while(dr.Read())
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
             {
-                Funcionario func = new Funcionario(); //chama a classe
-                func.Id = (int)dr["Id"]; 
-                func.Nome = dr["Nome"].ToString();
-                func.Turno = dr["Turno"].ToString();
-                func.Data_nascimento = dr["Data_nascimento"].ToString();
-                func.Matricula = dr["Matricula"].ToString();
-                li.Add(func); // addiciona os dados na lista
-             }
+                Funcionario func = new Funcionario();
+                func.Id = (int)dr["Id"];
+                func.nome = dr["nome"].ToString();
+                func.turno = dr["turno"].ToString();
+                func.data_nascimento = dr["data_nascimento"].ToString();
+                func.matricula = dr["matricula"].ToString();
+                li.Add(func);
+            }
             dr.Close();
             con.Close();
             return li;
         }
 
-        public void Inserir(string Nome, string Turno, string Data_nascimento, string Matricula)
+        public void Inserir(string nome, string turno, string data_nascimento, string matricula)
         {
             try
             {
-                string sql = "INSERT INTO Funcionario(Nome, Turno, Data_nascimento, Matricula) VALUES ('" + Nome + "', '" + Turno + "', '" + Data_nascimento + "', '" + Matricula + "')";
-                if(con.State == ConnectionState.Open)
+                string sql = "INSERT INTO Funcionario(nome,turno,data_nascimento,matricula) VALUES ('"+nome+"','"+turno+"','"+data_nascimento+"','"+matricula+"')";
+                if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
-                SqlCommand cmd = new SqlCommand (sql, con);
+                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception erro)
             {
-
                 MessageBox.Show(erro.Message);
             }
         }
@@ -70,20 +69,20 @@ namespace AppFuncionario
         {
             try
             {
-                string sql = "SELECT * FROM Funcionario Where = Id='" + Id + "'";
-                if(con.State == ConnectionState.Open)
+                string sql = "SELECT * FROM Funcionario WHERE Id='" + Id + "'";
+                if (con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
                 con.Open();
-                SqlCommand cmd = new SqlCommand(sql, con); 
-                SqlDataReader dr = cmd.ExecuteReader(); 
-                while(dr.Read())
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    Nome = dr["Nome"].ToString();
-                    Turno = dr["Turno"].ToString();
-                    Data_nascimento = dr["Data_nascimento"].ToString();
-                    Matricula = dr["Matricula"].ToString() ;
+                    nome = dr["nome"].ToString();
+                    turno = dr["turno"].ToString();
+                    data_nascimento = dr["data_nascimento"].ToString();
+                    matricula = dr["matricula"].ToString();
                 }
                 dr.Close();
                 con.Close();
@@ -94,11 +93,11 @@ namespace AppFuncionario
             }
         }
 
-        public void Atualizar(int Id, string Nome, string Turno, string Data_nascimento, string Matricula)
+        public void Atualizar(int Id, string nome, string turno, string data_nascimento, string matricula)
         {
             try
             {
-                string sql = "UPDATE Funcionario SET Nome='" + Nome + "', Turno='" + Turno + "', Data_nascimento='" + Data_nascimento + "', Matricula='" + Matricula + "' WHERE Id='"+Id+"'";
+                string sql = "UPDATE Funcionario SET nome='"+nome+"',turno='"+turno+"',data_nascimento='"+data_nascimento+"',matricula='"+matricula+"' WHERE Id='"+Id+"'";
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
@@ -110,7 +109,6 @@ namespace AppFuncionario
             }
             catch (Exception erro)
             {
-
                 MessageBox.Show(erro.Message);
             }
         }
@@ -119,7 +117,7 @@ namespace AppFuncionario
         {
             try
             {
-                string sql = "DELETE FROM Funcionario WHERE Id='" + Id + "'";
+                string sql = "DELETE FROM Funcionario WHERE Id='"+Id+"'";
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
@@ -131,15 +129,14 @@ namespace AppFuncionario
             }
             catch (Exception erro)
             {
-
                 MessageBox.Show(erro.Message);
             }
         }
 
-        public bool RegistroRepetido(string Matricula)
+        public bool RegistroRepetido(string matricula)
         {
-            string sql = "SELECT * FROM Funcionario WHERE Matricula='" + Matricula + "'";
-            if(con.State == ConnectionState.Open) 
+            string sql = "SELECT * FROM Funcionario WHERE matricula='"+matricula+"'";
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
@@ -147,7 +144,7 @@ namespace AppFuncionario
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.ExecuteNonQuery();
             var result = cmd.ExecuteScalar();
-            if(result != null)
+            if (result != null)
             {
                 return (int)result > 0;
             }
@@ -174,34 +171,32 @@ namespace AppFuncionario
             return false;
         }
 
-        public bool Aniversario(string Data)
+        public bool Aniversario(string data)
         {
-            string sql = "SELECT Data_nascimento FROM Funcionario";
-            if(con.State == ConnectionState.Open)
+            string sql = "SELECT data_nascimento FROM Funcionario";
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
             con.Open();
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader dr = cmd.ExecuteReader();
-            var dataNiver = Data;
-            string data1 = dataNiver.Substring(0, 2);
-            string data2 = dataNiver.Substring(3, 2);
+            var dataniver = data;
+            string data1 = dataniver.Substring(0, 2);
+            string data2 = dataniver.Substring(3, 2);
             while (dr.Read())
             {
-                var datanasc = dr["Data_nascimento"].ToString();
+                var datanasc = dr["data_nascimento"].ToString();
                 string datan1 = datanasc.Substring(0, 2);
                 string datan2 = datanasc.Substring(3, 2);
-                if (data1.ToString() == datan1.ToString() && data2.ToString() == datan2.ToString())
+                if(data1.ToString() == datan1.ToString() && data2.ToString() == datan2.ToString())
                 {
                     return true;
                 }
-                
             }
             dr.Close();
             con.Close();
             return false;
         }
     }
-
- }
+}

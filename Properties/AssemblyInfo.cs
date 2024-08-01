@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AppFuncionario")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Sistema Fiep")]
 [assembly: AssemblyProduct("AppFuncionario")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © Sistema Fiep 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("c706e3fd-22a0-49d4-83e4-095b7ee357be")]
+[assembly: Guid("1af17603-88e1-4865-b7b3-4a800939c339")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C706E3FD-22A0-49D4-83E4-095B7EE357BE}</ProjectGuid>
+    <ProjectGuid>{1AF17603-88E1-4865-B7B3-4A800939C339}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AppFuncionario</RootNamespace>
     <AssemblyName>AppFuncionario</AssemblyName>
@@ -110,7 +110,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DbFuncionario.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\bolodeaniversario.png" />
+    <None Include="Resources\aniversario.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

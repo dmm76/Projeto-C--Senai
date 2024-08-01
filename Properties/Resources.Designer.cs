@@ -63,9 +63,9 @@ namespace AppFuncionario.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bolodeaniversario {
+        internal static System.Drawing.Bitmap aniversario {
             get {
-                object obj = ResourceManager.GetObject("bolodeaniversario", resourceCulture);
+                object obj = ResourceManager.GetObject("aniversario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
