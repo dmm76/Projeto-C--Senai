@@ -17,7 +17,7 @@ namespace AppFuncionario
         public string data_nascimento { get; set; }
         public string matricula { get; set; }
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Aluno\\Documents\\Github\\Projeto-C--Senai\\DbFuncionario.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Master10\\Documents\\GitHub\\Projeto-C--Senai\\DbFuncionario.mdf;Integrated Security=True");
 
         public List<Funcionario> Listafuncionario()
         {
